@@ -1,35 +1,17 @@
 {
-    "startup": {
-        "action": "StartApp",
-        "package": "com.zy.wqmt.cn",
-        "next": [
-            "login"
-        ],
-        "interrupt": [
-            "cancel_accouncement",
-            "delay"
-        ]
-    },
-    "delay": {
-        "action": "DoNothing",
-        "post_delay": 2000
-    },
     "cancel_accouncement": {
         "recognition": "OCR",
-        "expected": "公告",
+        "next": "click_on_side",
         "roi": [
             145,
-            89.5,
+            90,
             337,
             109
         ],
-        "next": [
-            "click_on_side"
-        ]
+        "expected": "公告"
     },
     "login": {
         "recognition": "OCR",
-        "expected": "进入管理局",
         "action": "Click",
         "next": [
             "mail",
@@ -43,258 +25,230 @@
             "cancel_promotion2",
             "click_on_side"
         ],
-        "post_wait_freezes": 5000
+        "post_wait_freezes": 5000,
+        "expected": "进入管理局"
     },
     "disconnect": {
         "recognition": "OCR",
-        "expected": "意识恢复中",
+        "action": "DoNothing",
+        "post_delay": 1000,
         "roi": [
             514,
-            321.5,
+            322,
             256,
             183
         ],
-        "action": "DoNothing",
-        "post_delay": 1000
+        "expected": "意识恢复中"
     },
     "login_loading": {
         "recognition": "OCR",
-        "expected": "加载中",
+        "post_wait_freezes": 1000,
         "roi": [
             380,
-            412.5,
+            412,
             299,
             174
         ],
-        "post_wait_freezes": 1000
+        "expected": "加载中"
     },
     "cancel_promotion": {
         "recognition": "OCR",
-        "expected": "今日不再弹出",
+        "action": "Click",
+        "post_wait_freezes": 1000,
         "roi": [
             720,
-            240.5,
+            240,
             560,
-            479.5
+            480
         ],
-        "replace": [
-            "百",
-            "日"
-        ],
-        "action": "Click",
+        "expected": "今日不再弹出",
         "target": [
             9,
-            11.5,
+            12,
             111,
             96
-        ],
-        "post_wait_freezes": 1000
+        ]
     },
     "cancel_promotion2": {
         "recognition": "OCR",
-        "expected": "礼包",
+        "action": "Click",
         "roi": [
             802,
-            579.5,
+            580,
             453,
             123
         ],
-        "action": "Click",
+        "expected": "礼包",
         "target": [
             1101,
-            15.5,
+            16,
             104,
             76
         ]
     },
     "emotion_test": {
         "recognition": "OCR",
-        "expected": "检测",
+        "action": "Click",
+        "next": "emotion_test_complete",
+        "interrupt": "emotion_test",
+        "post_wait_freezes": 3000,
         "roi": [
             509,
-            23.5,
+            24,
             673,
             242
         ],
-        "action": "Click",
+        "expected": "检测",
         "target": [
             621,
-            362.5,
+            362,
             400,
             166
-        ],
-        "next": [
-            "emotion_test_complete"
-        ],
-        "interrupt": [
-            "emotion_test"
-        ],
-        "post_wait_freezes": 3000
+        ]
     },
     "emotion_test_complete": {
         "recognition": "OCR",
-        "expected": "完成",
-        "roi": [
-            533,
-            111.5,
-            574,
-            472
-        ],
         "next": [
             "collect_emotion_rewards2",
             "collect_emotion_rewards8",
             "collect_emotion_rewards15",
             "collect_emotion_rewards25",
             "click_on_side"
-        ]
+        ],
+        "roi": [
+            533,
+            112,
+            574,
+            472
+        ],
+        "expected": "完成"
     },
     "collect_emotion_rewards2": {
         "recognition": "OCR",
-        "expected": "2",
+        "action": "Click",
+        "next": "emotion_reward_complete2",
+        "interrupt": "click_on_side",
         "roi": [
             284,
-            580.5,
+            580,
             58,
             44
         ],
-        "action": "Click",
+        "expected": "2",
         "target": [
             539,
-            571.5,
+            572,
             64,
             69
-        ],
-        "next": [
-            "emotion_reward_complete2"
-        ],
-        "interrupt": [
-            "click_on_side"
         ]
     },
     "emotion_reward_complete2": {
         "recognition": "TemplateMatch",
-        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "next": "click_on_side",
         "roi": [
             539,
-            571.5,
+            572,
             64,
             69
         ],
-        "next": [
-            "click_on_side"
-        ]
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png"
     },
     "collect_emotion_rewards8": {
         "recognition": "OCR",
-        "expected": "8",
+        "action": "Click",
+        "next": "emotion_reward_complete8",
+        "interrupt": "click_on_side",
         "roi": [
             284,
-            580.5,
+            580,
             58,
             44
         ],
-        "action": "Click",
+        "expected": "8",
         "target": [
             697,
-            582.5,
+            582,
             51,
             56
-        ],
-        "next": [
-            "emotion_reward_complete8"
-        ],
-        "interrupt": [
-            "click_on_side"
         ]
     },
     "emotion_reward_complete8": {
         "recognition": "TemplateMatch",
-        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "next": "click_on_side",
         "roi": [
             697,
-            582.5,
+            582,
             51,
             56
         ],
-        "next": [
-            "click_on_side"
-        ]
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png"
     },
     "collect_emotion_rewards15": {
         "recognition": "OCR",
-        "expected": "15",
+        "action": "Click",
+        "next": "emotion_reward_complete15",
+        "interrupt": "click_on_side",
         "roi": [
             284,
-            580.5,
+            580,
             58,
             44
         ],
-        "action": "Click",
+        "expected": "15",
         "target": [
             836,
-            575.5,
+            576,
             66,
             63
-        ],
-        "next": [
-            "emotion_reward_complete15"
-        ],
-        "interrupt": [
-            "click_on_side"
         ]
     },
     "emotion_reward_complete15": {
         "recognition": "TemplateMatch",
-        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "next": "click_on_side",
+        "post_wait_freezes": 50,
         "roi": [
             836,
-            575.5,
+            576,
             66,
             63
         ],
-        "next": [
-            "click_on_side"
-        ],
-        "post_wait_freezes": 50
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png"
     },
     "collect_emotion_rewards25": {
         "recognition": "OCR",
-        "expected": "25",
+        "action": "Click",
+        "next": "emotion_reward_complete25",
+        "interrupt": "click_on_side",
         "roi": [
             284,
-            580.5,
+            580,
             58,
             44
         ],
-        "action": "Click",
+        "expected": "25",
         "target": [
             984,
-            575.5,
+            576,
             59,
             59
-        ],
-        "next": [
-            "emotion_reward_complete25"
-        ],
-        "interrupt": [
-            "click_on_side"
         ]
     },
     "emotion_reward_complete25": {
         "recognition": "TemplateMatch",
-        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "next": "click_on_side",
         "roi": [
             984,
-            575.5,
+            576,
             59,
             59
         ],
-        "next": [
-            "click_on_side"
-        ]
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png"
     },
     "mail": {
         "recognition": "ColorMatch",
+        "action": "Click",
+        "next": "collect_mail",
+        "post_wait_freezes": 30,
         "roi": [
             133,
             414,
@@ -311,60 +265,49 @@
             220,
             25
         ],
-        "action": "Click",
         "target": [
             39,
-            415.5,
+            416,
             87,
             36
-        ],
-        "next": [
-            "collect_mail"
-        ],
-        "post_wait_freezes": 30
+        ]
     },
     "collect_mail": {
         "recognition": "OCR",
-        "expected": "快速处理",
+        "action": "Click",
+        "next": "delete_mail",
+        "interrupt": "click_on_mail",
         "roi": [
             28,
-            624.5,
+            624,
             443,
             82
         ],
-        "action": "Click",
-        "next": [
-            "delete_mail"
-        ],
-        "interrupt": [
-            "click_on_mail"
-        ]
+        "expected": "快速处理"
     },
     "delete_mail": {
         "recognition": "OCR",
-        "expected": "删除",
+        "action": "Click",
+        "next": "confirm_mail",
+        "interrupt": "delete_mail",
         "roi": [
             28,
-            620.5,
+            620,
             447,
             82
         ],
-        "action": "Click",
-        "next": [
-            "confirm_mail"
-        ],
-        "interrupt": [
-            "delete_mail"
-        ]
+        "expected": "删除"
     },
     "confirm_mail": {
         "recognition": "ColorMatch",
+        "next": "home_button",
         "roi": [
             279,
-            652.5,
+            652,
             25,
             23
         ],
+        "count": 100,
         "lower": [
             79,
             79,
@@ -374,10 +317,6 @@
             81,
             82,
             85
-        ],
-        "count": 100,
-        "next": [
-            "home_button"
         ]
     },
     "click_on_mail": {
@@ -392,6 +331,7 @@
             14,
             3
         ],
+        "count": 20,
         "lower": [
             254,
             254,
@@ -401,7 +341,6 @@
             255,
             255,
             255
-        ],
-        "count": 20
+        ]
     }
 }
