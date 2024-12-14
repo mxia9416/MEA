@@ -2,5 +2,7 @@
     "resource": "官服",
     "controller": {
         "name": "桌面端"
-    }
+    },
+    "win32": {},
+    "task": []
 }
