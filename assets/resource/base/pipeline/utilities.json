@@ -1,0 +1,205 @@
+{
+    "click_on_side": {
+        "action": "Click",
+        "target": [
+            1183,
+            372.5,
+            92,
+            95
+        ],
+        "post_wait_freezes": 30
+    },
+    "back_button": {
+        "recognition": "TemplateMatch",
+        "template": "返回__23_16_46_50__0_0_119_116.png",
+        "roi": [
+            9,
+            7.5,
+            308,
+            84
+        ],
+        "action": "Click",
+        "post_wait_freezes": 30
+    },
+    "home_button": {
+        "recognition": "TemplateMatch",
+        "template": "主页__141_21_41_42__91_0_141_113.png",
+        "roi": [
+            9,
+            7.5,
+            308,
+            84
+        ],
+        "action": "Click",
+        "post_wait_freezes": 30
+    },
+    "swipe_left": {
+        "action": "Swipe",
+        "begin": [
+            1090,
+            372,
+            1,
+            1
+        ],
+        "end": [
+            800,
+            369,
+            1,
+            1
+        ],
+        "post_wait_freezes": 20
+    },
+    "swipe_up": {
+        "action": "Swipe",
+        "begin": [
+            131,
+            646,
+            1,
+            1
+        ],
+        "end": [
+            131,
+            546,
+            1,
+            1
+        ],
+        "post_wait_freezes": 20
+    },
+    "auto_clear": {
+        "recognition": "OCR",
+        "expected": "扫荡",
+        "action": "Click",
+        "next": [
+            "click_on_side"
+        ],
+        "post_wait_freezes": 30
+    },
+    "auto_clear_batch": {
+        "recognition": "OCR",
+        "expected": "连续扫荡",
+        "roi": [
+            455,
+            543.5,
+            767,
+            180
+        ],
+        "action": "Click"
+    },
+    "auto_clear_max": {
+        "recognition": "ColorMatch",
+        "roi": [
+            891,
+            461.5,
+            13,
+            15
+        ],
+        "lower": [
+            66,
+            69,
+            77
+        ],
+        "upper": [
+            68,
+            71,
+            79
+        ],
+        "action": "Click",
+        "post_wait_freezes": 20
+    },
+    "auto_clear_fail": {
+        "recognition": "OCR",
+        "expected": "不足",
+        "roi": [
+            380,
+            298.5,
+            522,
+            131
+        ],
+        "action": "Click",
+        "target": [
+            385,
+            471.5,
+            224,
+            56
+        ],
+        "next": [
+            "home_button"
+        ]
+    },
+    "auto_clear_complete": {
+        "recognition": "OCR",
+        "expected": "完成",
+        "roi": [
+            325,
+            496.5,
+            657,
+            227
+        ],
+        "action": "Click",
+        "next": [
+            "back_button",
+            "home_button"
+        ]
+    },
+    "select_difficulty": {
+        "recognition": "OCR",
+        "expected": "已完成",
+        "roi": [
+            358,
+            421.5,
+            900,
+            247
+        ],
+        "action": "Click",
+        "order_by": "Horizontal",
+        "index": -1
+    },
+    "crisis_management": {
+        "recognition": "TemplateMatch",
+        "template": "crisis_management__926_631_73_32__876_581_173_132.png",
+        "roi": [
+            911,
+            587.5,
+            355,
+            122
+        ],
+        "action": "Click"
+    },
+    "crisis_management2": {
+        "recognition": "OCR",
+        "expected": "危机管理",
+        "roi": [
+            920,
+            619.5,
+            89,
+            54
+        ],
+        "action": "Click"
+    },
+    "maintenance_center": {
+        "recognition": "TemplateMatch",
+        "template": "整备中心__1023_636_86_46__973_586_186_134.png",
+        "roi": [
+            858,
+            523.5,
+            422,
+            196.5
+        ],
+        "action": "Click"
+    },
+    "Dungeon_not_open": {
+        "recognition": "OCR",
+        "expected": "开放",
+        "roi": [
+            448,
+            292.5,
+            391,
+            55
+        ],
+        "next": [
+            "home_button"
+        ]
+    },
+    "end": {},
+    "combat_auto_clear": {}
+}

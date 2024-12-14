@@ -1,0 +1,59 @@
+{
+    "memory_storm": {
+        "next": [
+            "select_memory_storm"
+        ],
+        "interrupt": [
+            "memory_storm_tab",
+            "rust_river_tab",
+            "discity_tab",
+            "crisis_management2",
+            "crisis_management",
+            "home_button",
+            "back_button"
+        ]
+    },
+    "rust_river_tab": {
+        "recognition": "OCR",
+        "expected": "锈河",
+        "roi": [
+            114,
+            566.5,
+            1126,
+            159
+        ],
+        "action": "Click"
+    },
+    "memory_storm_tab": {
+        "recognition": "OCR",
+        "expected": "记忆风暴",
+        "roi": [
+            137,
+            131.5,
+            291,
+            298
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1
+    },
+    "select_memory_storm": {
+        "recognition": "OCR",
+        "expected": "记忆畸点",
+        "roi": [
+            11,
+            114.5,
+            334,
+            355
+        ],
+        "action": "Click",
+        "next": [
+            "auto_clear_complete",
+            "auto_clear_fail"
+        ],
+        "interrupt": [
+            "select_difficulty",
+            "auto_clear_batch",
+            "auto_clear"
+        ]
+    }
+}

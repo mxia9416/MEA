@@ -1,0 +1,151 @@
+{
+    "supervision": {
+        "next": [
+            "supervision_tab"
+        ],
+        "interrupt": [
+            "maintenance_center",
+            "home_button",
+            "back_button"
+        ]
+    },
+    "supervision_tab": {
+        "recognition": "OCR",
+        "expected": "监管",
+        "roi": [
+            948,
+            172.5,
+            321,
+            374
+        ],
+        "action": "Click",
+        "next": [
+            "collect_supervision_rewards",
+            "supervision_terminal",
+            "home_button",
+            "back_button"
+        ],
+        "interrupt": [],
+        "post_wait_freezes": 50
+    },
+    "collect_supervision_rewards": {
+        "recognition": "OCR",
+        "expected": "一键收取",
+        "roi": [
+            27,
+            150.5,
+            223,
+            236
+        ],
+        "action": "Click",
+        "next": [
+            "supervision_terminal",
+            "home_button",
+            "back_button"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ],
+        "post_wait_freezes": 50
+    },
+    "supervision_terminal": {
+        "recognition": "ColorMatch",
+        "roi": [
+            223,
+            173,
+            4,
+            4
+        ],
+        "lower": [
+            245,
+            197,
+            19
+        ],
+        "upper": [
+            255,
+            207,
+            29
+        ],
+        "action": "Click",
+        "target": [
+            40,
+            176.5,
+            186,
+            53
+        ],
+        "next": [
+            "play_button"
+        ]
+    },
+    "play_button": {
+        "recognition": "TemplateMatch",
+        "template": "play_button__1094_355_125_133__1044_305_225_233.png",
+        "roi": [
+            1037,
+            294.5,
+            235,
+            233
+        ],
+        "action": "Click",
+        "next": [
+            "skip_button"
+        ]
+    },
+    "skip_button": {
+        "recognition": "OCR",
+        "expected": "跳过",
+        "roi": [
+            1092,
+            3.5,
+            181,
+            81
+        ],
+        "action": "Click",
+        "next": [
+            "next_dialog",
+            "next_sinner",
+            "home_button",
+            "back_button"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ],
+        "post_wait_freezes": 50
+    },
+    "next_dialog": {
+        "recognition": "TemplateMatch",
+        "template": "next_dialog__1161_559_22_24__1111_509_122_124.png",
+        "roi": [
+            1070,
+            535.5,
+            148,
+            145
+        ],
+        "action": "Click",
+        "next": [
+            "skip_button",
+            "next_sinner",
+            "home_button",
+            "back_button"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ],
+        "post_wait_freezes": 50
+    },
+    "next_sinner": {
+        "recognition": "OCR",
+        "expected": "下一位",
+        "roi": [
+            1023,
+            567.5,
+            266,
+            138
+        ],
+        "action": "Click",
+        "next": [
+            "skip_button"
+        ],
+        "post_wait_freezes": 50
+    }
+}

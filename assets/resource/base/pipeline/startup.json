@@ -1,0 +1,407 @@
+{
+    "startup": {
+        "action": "StartApp",
+        "package": "com.zy.wqmt.cn",
+        "next": [
+            "login"
+        ],
+        "interrupt": [
+            "cancel_accouncement",
+            "delay"
+        ]
+    },
+    "delay": {
+        "action": "DoNothing",
+        "post_delay": 2000
+    },
+    "cancel_accouncement": {
+        "recognition": "OCR",
+        "expected": "公告",
+        "roi": [
+            145,
+            89.5,
+            337,
+            109
+        ],
+        "next": [
+            "click_on_side"
+        ]
+    },
+    "login": {
+        "recognition": "OCR",
+        "expected": "进入管理局",
+        "action": "Click",
+        "next": [
+            "mail",
+            "startup_finish"
+        ],
+        "interrupt": [
+            "disconnect",
+            "login_loading",
+            "cancel_promotion",
+            "emotion_test",
+            "cancel_promotion2",
+            "click_on_side"
+        ],
+        "post_wait_freezes": 5000
+    },
+    "disconnect": {
+        "recognition": "OCR",
+        "expected": "意识恢复中",
+        "roi": [
+            514,
+            321.5,
+            256,
+            183
+        ],
+        "action": "DoNothing",
+        "post_delay": 1000
+    },
+    "login_loading": {
+        "recognition": "OCR",
+        "expected": "加载中",
+        "roi": [
+            380,
+            412.5,
+            299,
+            174
+        ],
+        "post_wait_freezes": 1000
+    },
+    "cancel_promotion": {
+        "recognition": "OCR",
+        "expected": "今日不再弹出",
+        "roi": [
+            720,
+            240.5,
+            560,
+            479.5
+        ],
+        "replace": [
+            "百",
+            "日"
+        ],
+        "action": "Click",
+        "target": [
+            9,
+            11.5,
+            111,
+            96
+        ],
+        "post_wait_freezes": 1000
+    },
+    "cancel_promotion2": {
+        "recognition": "OCR",
+        "expected": "礼包",
+        "roi": [
+            802,
+            579.5,
+            453,
+            123
+        ],
+        "action": "Click",
+        "target": [
+            1101,
+            15.5,
+            104,
+            76
+        ]
+    },
+    "emotion_test": {
+        "recognition": "OCR",
+        "expected": "检测",
+        "roi": [
+            509,
+            23.5,
+            673,
+            242
+        ],
+        "action": "Click",
+        "target": [
+            621,
+            362.5,
+            400,
+            166
+        ],
+        "next": [
+            "emotion_test_complete"
+        ],
+        "interrupt": [
+            "emotion_test"
+        ],
+        "post_wait_freezes": 3000
+    },
+    "emotion_test_complete": {
+        "recognition": "OCR",
+        "expected": "完成",
+        "roi": [
+            533,
+            111.5,
+            574,
+            472
+        ],
+        "next": [
+            "collect_emotion_rewards2",
+            "collect_emotion_rewards8",
+            "collect_emotion_rewards15",
+            "collect_emotion_rewards25",
+            "click_on_side"
+        ]
+    },
+    "collect_emotion_rewards2": {
+        "recognition": "OCR",
+        "expected": "2",
+        "roi": [
+            284,
+            580.5,
+            58,
+            44
+        ],
+        "action": "Click",
+        "target": [
+            539,
+            571.5,
+            64,
+            69
+        ],
+        "next": [
+            "emotion_reward_complete2"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ]
+    },
+    "emotion_reward_complete2": {
+        "recognition": "TemplateMatch",
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "roi": [
+            539,
+            571.5,
+            64,
+            69
+        ],
+        "next": [
+            "click_on_side"
+        ]
+    },
+    "collect_emotion_rewards8": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            284,
+            580.5,
+            58,
+            44
+        ],
+        "action": "Click",
+        "target": [
+            697,
+            582.5,
+            51,
+            56
+        ],
+        "next": [
+            "emotion_reward_complete8"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ]
+    },
+    "emotion_reward_complete8": {
+        "recognition": "TemplateMatch",
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "roi": [
+            697,
+            582.5,
+            51,
+            56
+        ],
+        "next": [
+            "click_on_side"
+        ]
+    },
+    "collect_emotion_rewards15": {
+        "recognition": "OCR",
+        "expected": "15",
+        "roi": [
+            284,
+            580.5,
+            58,
+            44
+        ],
+        "action": "Click",
+        "target": [
+            836,
+            575.5,
+            66,
+            63
+        ],
+        "next": [
+            "emotion_reward_complete15"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ]
+    },
+    "emotion_reward_complete15": {
+        "recognition": "TemplateMatch",
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "roi": [
+            836,
+            575.5,
+            66,
+            63
+        ],
+        "next": [
+            "click_on_side"
+        ],
+        "post_wait_freezes": 50
+    },
+    "collect_emotion_rewards25": {
+        "recognition": "OCR",
+        "expected": "25",
+        "roi": [
+            284,
+            580.5,
+            58,
+            44
+        ],
+        "action": "Click",
+        "target": [
+            984,
+            575.5,
+            59,
+            59
+        ],
+        "next": [
+            "emotion_reward_complete25"
+        ],
+        "interrupt": [
+            "click_on_side"
+        ]
+    },
+    "emotion_reward_complete25": {
+        "recognition": "TemplateMatch",
+        "template": "emotion_reward_completed__554_584_39_37__504_534_139_137.png",
+        "roi": [
+            984,
+            575.5,
+            59,
+            59
+        ],
+        "next": [
+            "click_on_side"
+        ]
+    },
+    "mail": {
+        "recognition": "ColorMatch",
+        "roi": [
+            133,
+            414,
+            3,
+            3
+        ],
+        "lower": [
+            250,
+            205,
+            19
+        ],
+        "upper": [
+            255,
+            220,
+            25
+        ],
+        "action": "Click",
+        "target": [
+            39,
+            415.5,
+            87,
+            36
+        ],
+        "next": [
+            "collect_mail"
+        ],
+        "post_wait_freezes": 30
+    },
+    "collect_mail": {
+        "recognition": "OCR",
+        "expected": "快速处理",
+        "roi": [
+            28,
+            624.5,
+            443,
+            82
+        ],
+        "action": "Click",
+        "next": [
+            "delete_mail"
+        ],
+        "interrupt": [
+            "click_on_mail"
+        ]
+    },
+    "delete_mail": {
+        "recognition": "OCR",
+        "expected": "删除",
+        "roi": [
+            28,
+            620.5,
+            447,
+            82
+        ],
+        "action": "Click",
+        "next": [
+            "confirm_mail"
+        ],
+        "interrupt": [
+            "delete_mail"
+        ]
+    },
+    "confirm_mail": {
+        "recognition": "ColorMatch",
+        "roi": [
+            279,
+            652.5,
+            25,
+            23
+        ],
+        "lower": [
+            79,
+            79,
+            80
+        ],
+        "upper": [
+            81,
+            82,
+            85
+        ],
+        "count": 100,
+        "next": [
+            "home_button"
+        ]
+    },
+    "click_on_mail": {
+        "action": "Click",
+        "target": "collect_mail"
+    },
+    "startup_finish": {
+        "recognition": "ColorMatch",
+        "roi": [
+            415,
+            56,
+            14,
+            3
+        ],
+        "lower": [
+            254,
+            254,
+            254
+        ],
+        "upper": [
+            255,
+            255,
+            255
+        ],
+        "count": 20
+    }
+}
