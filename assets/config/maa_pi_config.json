@@ -3,7 +3,9 @@
     "controller": {
         "name": "桌面端"
     },
-    "win32": {},
+    "win32": {
+        "hwnd": "0x41004e"
+    },
     "task": [],
     "adb": {
         "adb_path": "E:/leidian/LDPlayer9/adb.exe",

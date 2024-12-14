@@ -9,7 +9,7 @@
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
-                "window_regex": "白荆回廊"
+                "window_regex": ".*"
             }
         }
     ],
