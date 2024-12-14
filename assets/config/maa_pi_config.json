@@ -4,5 +4,19 @@
         "name": "桌面端"
     },
     "win32": {},
-    "task": []
+    "task": [],
+    "adb": {
+        "adb_path": "E:/leidian/LDPlayer9/adb.exe",
+        "address": "emulator-5554",
+        "config": {
+            "extras": {
+                "ld": {
+                    "enable": true,
+                    "index": 0,
+                    "path": "E:/leidian/LDPlayer9",
+                    "pid": 41904
+                }
+            }
+        }
+    }
 }
