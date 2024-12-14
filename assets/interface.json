@@ -1,9 +1,9 @@
 {
-    "name": "MEA",
-    "version": "0.1",
-    "url": "https://github.com/mxia9416/MEA",
-    "default_controller": "win32",
     "controller": [
+        {
+            "name": "安卓端",
+            "type": "Adb"
+        },
         {
             "name": "桌面端",
             "type": "Win32",
@@ -17,219 +17,54 @@
         {
             "name": "官服",
             "path": [
-                "{PROJECT_DIR}/resource/base"
+                "{PROJECT_DIR}/resource"
             ]
         },
         {
-            "name": "国际繁中",
+            "name": "B 服",
             "path": [
                 "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/global"
+                "{PROJECT_DIR}/resource_bilibili"
             ]
         }
     ],
     "task": [
         {
-            "name": "进入游戏",
-            "entry": "startup"
+            "name": "普通任务",
+            "entry": "MyTask1"
         },
         {
-            "name": "秘盟捐赠",
-            "entry": "guild",
-            "doc": "默认捐赠狄斯币\n（应该没人要捐异方晶吧）"
-        },
-        {
-            "name": "好友点数",
-            "entry": "friend_points"
-        },
-        {
-            "name": "监管奖励",
-            "entry": "supervision"
-        },
-        {
-            "name": "采购办免费礼包",
-            "entry": "procument"
-        },
-        {
-            "name": "一键派遣",
-            "entry": "dispatch"
-        },
-        {
-            "name": "领取体力",
-            "entry": "stamina"
-        },
-        {
-            "name": "扫荡浊暗之阱",
-            "entry": "darkness_well",
-            "doc": "默认扫荡[b]乐园幻境[/b]!\n如未开启该副本扫荡,[color:red]不要选择[/color]本任务!"
-        },
-        {
-            "name": "扫荡破碎防线:暗域",
-            "entry": "darkness_zone",
-            "doc": "仅在可扫荡时扫荡!\n如未达到要求，请[color:red]手动攻略[/color]暗域"
-        },
-        {
-            "name": "扫荡记忆风暴",
-            "entry": "memory_storm",
+            "name": "选项任务",
+            "entry": "MyTask2",
             "option": [
-                "畸点选择"
-            ],
-            "doc": "扫荡上方选择副本的(已开启)最高难度关卡3次！\n如选中的畸点今日[color:red]未开放[/color]，则本任务会自动扫荡正在开放的畸点"
-        },
-        {
-            "name": "全体力作战扫荡",
-            "entry": "combat_auto_clear",
-            "option": [
-                "作战区域"
-            ],
-            "doc": "全体力扫荡上方选择副本的(已开启)最高难度关卡!\n对于[b]帕尔马废墟（职业升阶原质）[/b]:\n如选中的副本今日[color:red]未开放[/color],则本任务会[color:red]放弃扫荡[/color]!"
-        },
-        {
-            "name": "每日/密令奖励",
-            "entry": "battle_pass",
-            "option": [
-                "奖励选择"
+                "任务选项1"
             ]
+        },
+        {
+            "name": "参数任务",
+            "entry": "MyTask3",
+            "option": [
+                "任务选项1"
+            ],
+            "pipeline_override": {}
         }
     ],
     "option": {
-        "畸点选择": {
+        "任务选项1": {
             "cases": [
                 {
-                    "name": "记忆畸点",
+                    "name": "文本1",
                     "pipeline_override": {
-                        "select_memory_storm": {
-                            "expected": "记忆畸点"
+                        "OcrTask": {
+                            "text": "文本1"
                         }
                     }
                 },
                 {
-                    "name": "印象畸点",
+                    "name": "文本2",
                     "pipeline_override": {
-                        "select_memory_storm": {
-                            "expected": "印象畸点"
-                        }
-                    }
-                },
-                {
-                    "name": "残响畸点",
-                    "pipeline_override": {
-                        "select_memory_storm": {
-                            "expected": "残响畸点"
-                        }
-                    }
-                }
-            ]
-        },
-        "作战区域": {
-            "cases": [
-                {
-                    "name": "淘金狂热",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "gold"
-                        }
-                    }
-                },
-                {
-                    "name": "恶兆之种",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "seed"
-                        }
-                    }
-                },
-                {
-                    "name": "禁区探查(技能书)",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "skill"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:坚韧",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "坚韧"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:狂暴",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "狂暴"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:诡秘",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "诡秘"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:精准",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "精准"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:异能",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "异能"
-                        }
-                    }
-                },
-                {
-                    "name": "帕尔马废墟:启迪",
-                    "pipeline_override": {
-                        "combat_auto_clear": {
-                            "next": "talent"
-                        },
-                        "select_talent": {
-                            "expected": "启迪"
-                        }
-                    }
-                }
-            ]
-        },
-        "奖励选择": {
-            "cases": [
-                {
-                    "name": "监察徽印",
-                    "pipeline_override": {
-                        "select_bp_reward": {
-                            "index": 1
-                        }
-                    }
-                },
-                {
-                    "name": "体力",
-                    "pipeline_override": {
-                        "select_bp_reward": {
-                            "index": 0
+                        "OcrTask": {
+                            "text": "文本2"
                         }
                     }
                 }
