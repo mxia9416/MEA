@@ -5,20 +5,5 @@
     },
     "win32": {
         "hwnd": "0x3b90bc0"
-    },
-    "task": [],
-    "adb": {
-        "adb_path": "E:/leidian/LDPlayer9/adb.exe",
-        "address": "emulator-5554",
-        "config": {
-            "extras": {
-                "ld": {
-                    "enable": true,
-                    "index": 0,
-                    "path": "E:/leidian/LDPlayer9",
-                    "pid": 41904
-                }
-            }
-        }
     }
 }
