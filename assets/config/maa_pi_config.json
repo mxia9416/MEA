@@ -4,7 +4,7 @@
         "name": "桌面端"
     },
     "win32": {
-        "hwnd": "0x41004e"
+        "hwnd": "0x3b90bc0"
     },
     "task": [],
     "adb": {

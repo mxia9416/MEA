@@ -21,12 +21,12 @@
             "disconnect",
             "login_loading",
             "cancel_promotion",
-            "emotion_test",
+            "collect_gacha",
             "cancel_promotion2",
             "click_on_side"
         ],
         "post_wait_freezes": 5000,
-        "expected": "进入管理局"
+        "expected": "点击进入游戏"
     },
     "disconnect": {
         "recognition": "OCR",
@@ -86,42 +86,18 @@
             76
         ]
     },
-    "emotion_test": {
+    "collect_gacha": {
         "recognition": "OCR",
         "action": "Click",
-        "next": "emotion_test_complete",
-        "interrupt": "emotion_test",
-        "post_wait_freezes": 3000,
+        "interrupt": "collect_gacha",
+        "post_wait_freezes": 300,
         "roi": [
-            509,
-            24,
-            673,
-            242
+            210,
+            128.5,
+            941,
+            479
         ],
-        "expected": "检测",
-        "target": [
-            621,
-            362,
-            400,
-            166
-        ]
-    },
-    "emotion_test_complete": {
-        "recognition": "OCR",
-        "next": [
-            "collect_emotion_rewards2",
-            "collect_emotion_rewards8",
-            "collect_emotion_rewards15",
-            "collect_emotion_rewards25",
-            "click_on_side"
-        ],
-        "roi": [
-            533,
-            112,
-            574,
-            472
-        ],
-        "expected": "完成"
+        "expected": "可领取"
     },
     "collect_emotion_rewards2": {
         "recognition": "OCR",
