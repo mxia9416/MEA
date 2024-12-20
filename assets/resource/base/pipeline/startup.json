@@ -97,26 +97,7 @@
             941,
             479
         ],
-        "expected": "可领取"
-    },
-    "collect_emotion_rewards2": {
-        "recognition": "OCR",
-        "action": "Click",
-        "next": "emotion_reward_complete2",
-        "interrupt": "click_on_side",
-        "roi": [
-            284,
-            580,
-            58,
-            44
-        ],
-        "expected": "2",
-        "target": [
-            539,
-            572,
-            64,
-            69
-        ]
+        "expected": "日常待完成"
     },
     "emotion_reward_complete2": {
         "recognition": "TemplateMatch",
